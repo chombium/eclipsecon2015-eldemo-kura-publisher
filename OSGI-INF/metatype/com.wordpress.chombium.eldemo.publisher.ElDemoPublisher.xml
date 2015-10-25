@@ -6,14 +6,69 @@
 	
 	<Icon resource="OSGI-INF/eldemo-publisher.png" size="32"/>
 	
-	    <AD id="voltage.read.rate"  
-	        name="voltage.read.rate"
-	        type="Integer"
-	        cardinality="0" 
-	        required="true"
-	        default="10"
-	        min="1" 
-	        description="Interval for reading the voltage in seconds (min 1)."/>
+		<AD id="cb.initial.value"  
+            name="cb.initial.value"
+            type="Integer"
+            cardinality="0" 
+            required="true"
+            default="0" 
+            description="Circuit Breaker initial value">
+            <Option label="Turned OFF" value="0"/>          
+            <Option label="Turned ON" value="1"/>
+        </AD>
+
+        <AD id="cb.command.topic"  
+            name="cb.command.topic"
+            type="String"
+            cardinality="0" 
+            required="true"
+            default="LEAD1/CB1/CMD" 
+            description="CB1 topic to publish the messages to."/>
+
+        <AD id="cb.status.topic"  
+            name="cb.status.topic"
+            type="String"
+            cardinality="0" 
+            required="true"
+            default="LEAD1/CB1/STATUS" 
+            description="CB1 topic to publish the messages to."/>
+	
+        <AD id="qos"  
+            name="qos"
+            type="Integer"
+            cardinality="0" 
+            required="true"
+            default="0" 
+            description="Default QoS to publish the messages with.">
+            <Option label="Fire and forget" value="0"/>
+            <Option label="Al least once" value="1"/>          
+            <Option label="At most once" value="2"/>
+        </AD>
+
+        <AD id="publish.rate"  
+            name="publish.rate"
+            type="Integer"
+            cardinality="0" 
+            required="true"
+            default="10"
+            min="1" 
+            description="Default message publishing rate in seconds (min 1)."/>
+
+        <AD id="publish.retain"  
+            name="publish.retain"
+            type="Boolean"
+            cardinality="0" 
+            required="true"
+            default="false" 
+            description="Default retaing flag for the published messages."/>
+
+        <AD id="timestamp.format"  
+            name="timestamp.format"
+            type="String"
+            cardinality="0" 
+            required="true"
+            default="yyyyMMddHHmmss" 
+            description="Default timestamp format for the published messages."/>
 	    
     </OCD>
     

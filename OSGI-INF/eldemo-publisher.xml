@@ -11,5 +11,9 @@
    <property name="service.pid" type="String" value="com.wordpress.chombium.eldemo.publisher.ElDemoPublisher"/>
    <service>
       <provide interface="com.wordpress.chombium.eldemo.publisher.ElDemoPublisher"/>
+      <provide interface="com.wordpress.chombium.eldemo.sensors.SensorChangedListener"/>
+      <provide interface="org.eclipse.kura.cloud.CloudClientListener"/>
    </service>
+   <reference bind="setCloudService" cardinality="1..1" interface="org.eclipse.kura.cloud.CloudService" name="CloudService" policy="static" unbind="unsetCloudService"/>
+   <reference bind="setSensorService" cardinality="1..1" interface="com.wordpress.chombium.eldemo.sensors.SensorService" name="ElDemoSensorService" policy="static" unbind="unsetSensorService"/>
 </scr:component>
