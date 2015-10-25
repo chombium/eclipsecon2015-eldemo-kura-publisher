@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MetaData xmlns="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="en_us">
+    <OCD id="com.wordpress.chombium.eldemo.publisher.ElDemoPublisher"
+         name="ElDemoPublisher" 
+         description="ElDemoPublisher configuration. ">
+	
+	<Icon resource="OSGI-INF/eldemo-publisher.png" size="32"/>
+	
+	    <AD id="voltage.read.rate"  
+	        name="voltage.read.rate"
+	        type="Integer"
+	        cardinality="0" 
+	        required="true"
+	        default="10"
+	        min="1" 
+	        description="Interval for reading the voltage in seconds (min 1)."/>
+	    
+    </OCD>
+    
+    <Designate pid="com.wordpress.chombium.eldemo.publisher.ElDemoPublisher">
+        <Object ocdref="com.wordpress.chombium.eldemo.publisher.ElDemoPublisher"/>
+    </Designate>
+</MetaData>
+
